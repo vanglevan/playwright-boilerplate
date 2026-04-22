@@ -1,0 +1,17 @@
+node_modules
+dist
+test-results
+playwright-report
+reports
+allure-results
+allure-report
+monocart-report
+blob-report
+playwright/.cache
+playwright/.auth
+.git
+.github
+.husky
+.vscode
+.idea
+*.log

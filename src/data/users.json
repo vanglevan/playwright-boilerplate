@@ -1,0 +1,33 @@
+{
+  "validUsers": [
+    {
+      "firstName": "Alice",
+      "lastName": "Nguyen",
+      "email": "alice.nguyen@example.com",
+      "password": "Pa55w.rd"
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Tran",
+      "email": "bob.tran@example.com",
+      "password": "Pa55w.rd"
+    }
+  ],
+  "invalidUsers": [
+    {
+      "label": "wrong password",
+      "email": "alice.nguyen@example.com",
+      "password": "wrong-password"
+    },
+    {
+      "label": "non-existing email",
+      "email": "ghost@example.com",
+      "password": "Pa55w.rd"
+    },
+    {
+      "label": "empty email",
+      "email": "",
+      "password": "Pa55w.rd"
+    }
+  ]
+}
