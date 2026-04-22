@@ -1,0 +1,15 @@
+node_modules
+dist
+.claude
+.husky/_
+test-results
+playwright-report
+reports
+allure-results
+allure-report
+monocart-report
+blob-report
+playwright/.cache
+playwright/.auth
+package-lock.json
+*.min.js

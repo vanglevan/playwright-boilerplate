@@ -1,0 +1,83 @@
+{
+  "name": "playwright-boilerplate",
+  "version": "1.0.0",
+  "description": "Production-ready Playwright automation boilerplate (E2E, API, Visual, A11y, Performance, Mobile) with TypeScript, fixture-based POM, multi-env, multi-reporter, and CI for GitHub Actions + Jenkins.",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:e2e": "playwright test --project=chromium-e2e",
+    "test:api": "playwright test --project=api",
+    "test:visual": "playwright test --project=visual",
+    "test:a11y": "playwright test --project=accessibility",
+    "test:perf": "playwright test --project=performance",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:cross-browser": "playwright test --project=chromium-e2e --project=firefox-e2e --project=webkit-e2e",
+    "test:headed": "playwright test --headed",
+    "test:debug": "PWDEBUG=1 playwright test",
+    "test:ui": "playwright test --ui",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:update-snapshots": "playwright test --update-snapshots",
+    "test:shard": "playwright test --shard=${SHARD:-1/1}",
+    "test:env:dev": "TEST_ENV=dev playwright test",
+    "test:env:staging": "TEST_ENV=staging playwright test",
+    "test:env:prod": "TEST_ENV=prod playwright test",
+    "report:html": "playwright show-report",
+    "report:allure:generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
+    "report:allure:open": "allure open ./reports/allure-report",
+    "report:allure:serve": "allure serve ./reports/allure-results",
+    "report:merge": "playwright merge-reports --reporter=html ./reports/blob-reports",
+    "report:clean": "rimraf reports test-results playwright-report allure-results allure-report monocart-report blob-report",
+    "codegen": "playwright codegen",
+    "trace": "playwright show-trace",
+    "install:browsers": "playwright install --with-deps",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm run lint && npm run format:check",
+    "prepare": "husky || true"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@faker-js/faker": "^9.2.0",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "allure-commandline": "^2.32.0",
+    "allure-playwright": "^3.0.7",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "monocart-reporter": "^2.9.16",
+    "pino": "^9.5.0",
+    "pino-pretty": "^11.3.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "zod": "^3.23.8"
+  }
+}
